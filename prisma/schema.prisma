@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  title       String   @db.VarChar(255)
+  description String?
+  published   Boolean  @default(false)
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    Int      @unique
+}
+
+model Interest {
+  id              Int            @id @default(autoincrement())
+  title           String         @db.VarChar(255)
+  description     String         @db.VarChar(255)
+  UserInterests   UserInterests? @relation(fields: [userInterestsId], references: [id])
+  userInterestsId Int?
+  User            User[]
+}
+
+model UserInterests {
+  id        Int        @id @default(autoincrement())
+  user      User       @relation(fields: [userId], references: [id])
+  userId    Int        @unique()
+  interests Interest[]
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
+}
+
+model User {
+  id            Int             @id @default(autoincrement())
+  email         String          @unique
+  name          String?
+  username      String          @unique
+  posts         Post[]
+  profile       Profile?
+  interests     Interest?       @relation(fields: [interestId], references: [id])
+  UserInterests UserInterests[]
+  interestId    Int?
+  Auth          Auth[]
+}
+
+model Auth {
+  id                Int    @id @default(autoincrement())
+  password          String @db.VarChar(255)
+  user              User   @relation(fields: [userId], references: [id])
+  userId            Int    @unique
+  defaultPassString String @default(uuid())
+}
