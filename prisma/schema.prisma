@@ -65,14 +65,16 @@ model Account {
 }
 
 model User {
-  id            Int             @id @default(autoincrement())
-  email         String          @unique
+  id            Int            @id @default(autoincrement())
+  email         String         @unique
   name          String?
-  username      String          @unique
+  username      String?         @unique
+  emailVerified DateTime?
+  image         String?
   posts         Post[]
   profile       Profile?
-  Auth          Auth[]
-  UserInterests UserInterests[]
+  Auth          Auth?
+  UserInterests UserInterests?
   accounts      Account[]
   sessions      Session[]
 }
