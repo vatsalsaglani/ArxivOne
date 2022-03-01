@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "User" ALTER COLUMN "username" DROP NOT NULL,
-ALTER COLUMN "image" DROP NOT NULL;
