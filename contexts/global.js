@@ -4,7 +4,7 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
-  const [provider, setProvider] = useState("");
+
   return (
     <GlobalContext.Provider value={{ user, setUser }}>
       {children}
