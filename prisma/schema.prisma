@@ -45,7 +45,7 @@ model Profile {
 
 model Account {
   id                 Int     @id @default(autoincrement())
-  userId             Int
+  userId             Int     @unique
   type               String
   provider           String
   providerAccountId  String
@@ -68,21 +68,21 @@ model User {
   id            Int            @id @default(autoincrement())
   email         String         @unique
   name          String?
-  username      String?         @unique
+  username      String?        @unique
   emailVerified DateTime?
   image         String?
   posts         Post[]
   profile       Profile?
   Auth          Auth?
   UserInterests UserInterests?
-  accounts      Account[]
-  sessions      Session[]
+  accounts      Account?
+  sessions      Session?
 }
 
 model Session {
   id           Int      @id @default(autoincrement())
   sessionToken String   @unique
-  userId       Int
+  userId       Int      @unique
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
