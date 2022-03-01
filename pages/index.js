@@ -10,6 +10,7 @@ import { getProviders, signIn, getSession, useSession } from "next-auth/react";
 import SignInComponent from "../components/SignIn";
 import SignUpComponent from "../components/SignUp";
 import GlobalContext from "../contexts/global";
+import NavigationComponent from "../components/Navigation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,60 +23,40 @@ export default function Home() {
   const { data: session } = useSession();
   console.log("SESS: ", session);
   return (
-    <div
-      className={
-        "container mx-auto min-w-full min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500 p-4 flex flex-col items-center justify-center"
-      }
-    >
-      <div className="w-full max-w-md px-2 py-16 sm:px-0">
-        <Tab.Group>
-          <Tab.List className={"flex p-1 space-x-1 bg-blue-900/20 rounded-xl"}>
-            <Tab
-              className={({ selected }) =>
-                classNames(
-                  "w-full py-2.5 text-sm leading-5 font-medium text-blue-700 rounded-lg",
-                  "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
-                  selected
-                    ? "bg-white shadow"
-                    : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
-                )
-              }
+    <div className="block mb-10 dark:bg-[#0F192B]">
+      <div className="w-full">
+        <NavigationComponent />
+      </div>
+      <div
+        className={
+          "container mx-auto min-w-full min-h-screen p-4 flex flex-col items-center justify-center"
+        }
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+            Save and Explore
+            <span className="sm:block">new Research Papers.</span>
+          </h1>
+          <p className="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl">
+            Organize and follow new research papers in your domain with the
+            power of AI
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <a
+              className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring"
+              // href="/get-started"
             >
-              Sign In
-            </Tab>
-            <Tab
-              className={({ selected }) =>
-                classNames(
-                  "w-full py-2.5 text-sm leading-5 font-medium text-blue-700 rounded-lg",
-                  "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
-                  selected
-                    ? "bg-white shadow"
-                    : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
-                )
-              }
+              Get Started
+            </a>
+
+            <a
+              className="block w-full px-12 py-3 text-sm font-medium text-black hover:text-white dark:text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
+              // href="/about"
             >
-              Sign Up
-            </Tab>
-          </Tab.List>
-          <Tab.Panels className={"mt-2"}>
-            <Tab.Panel
-              className={classNames(
-                "bg-white rounded-xl p-3",
-                "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
-              )}
-            >
-              <SignInComponent />
-            </Tab.Panel>
-            <Tab.Panel
-              className={classNames(
-                "bg-white rounded-xl p-3",
-                "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
-              )}
-            >
-              <SignUpComponent />
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
+              Learn More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
