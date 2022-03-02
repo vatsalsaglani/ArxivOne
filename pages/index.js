@@ -2,9 +2,12 @@ import { useContext, useState, useEffect } from "react";
 
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Tab } from "@headlessui/react";
 import { getProviders, signIn, getSession, useSession } from "next-auth/react";
+
+import { useRouter } from "next/router";
 
 // components
 import SignInComponent from "../components/SignIn";
@@ -17,11 +20,16 @@ function classNames(...classes) {
 }
 
 export default function Home() {
-  // console.log(providers);
-  const { user } = useContext(GlobalContext);
-  console.log("USER: ", user);
   const { data: session } = useSession();
-  console.log("SESS: ", session);
+
+  const router = useRouter();
+  if (session) {
+    router.push("/dashboard");
+  }
+
+  if (session) {
+    return <div></div>;
+  }
   return (
     <div className="block mb-10 dark:bg-[#0F192B]">
       <div className="w-full">
@@ -42,12 +50,14 @@ export default function Home() {
             power of AI
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a
-              className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring"
-              // href="/get-started"
-            >
-              Get Started
-            </a>
+            <Link href="/account">
+              <a
+                className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring"
+                // href="/get-started"
+              >
+                Get Started
+              </a>
+            </Link>
 
             <a
               className="block w-full px-12 py-3 text-sm font-medium text-black hover:text-white dark:text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
