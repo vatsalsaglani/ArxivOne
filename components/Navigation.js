@@ -1,9 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
-// import useToggleTheme from "../lib/toggleTheme";
-import GlobalContext from "../contexts/global";
-import { Transition } from "@headlessui/react";
+import Link from "next/link";
 
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -29,12 +26,18 @@ export default function NavigationComponent() {
         >
           <div className=" text-slate-600 dark:text-slate-100 flex justify-between items-stretch">
             <div className="font-mono font-extrabold text-justify text-4xl">
-              ArxivOne
+              <Link href="/">
+                <a>ArxivOne</a>
+              </Link>
             </div>
           </div>
           <div className="hidden md:flex w-2/12 justify-around items-center text-slate-600 dark:text-slate-100 space-x-4 z-1">
             <div className="font-serif font-medium text-justify text-lg md:text-xl">
-              <div>Features</div>
+              <Link href="/features">
+                <a>
+                  <div>Features</div>
+                </a>
+              </Link>
             </div>
             <div>
               <button
@@ -84,13 +87,15 @@ export default function NavigationComponent() {
                 "flex flex-col mx-auto items-center justify-center px-2 pt-2 pb-3 space-y-1 sm:px-3"
               }
             >
-              <a
-                className={
-                  "text-black dark:text-white block px-3 py-2 rounded-md text-base font-medium"
-                }
-              >
-                Features
-              </a>
+              <Link href="/features">
+                <a
+                  className={
+                    "text-black dark:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  }
+                >
+                  Features
+                </a>
+              </Link>
               <div>
                 <button
                   className={classNames(
@@ -116,4 +121,4 @@ export default function NavigationComponent() {
   );
 }
 
-const Icon = ({ icon }) => <div>{icon}</div>;
+export const Icon = ({ icon }) => <div>{icon}</div>;
