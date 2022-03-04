@@ -4,7 +4,7 @@ import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import { MdAlternateEmail } from "react-icons/md";
-import { AiOutlineEye, AiFillGithub } from "react-icons/ai";
+import { AiOutlineEye, AiFillGithub, AiFillEyeInvisible } from "react-icons/ai";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,11 +15,15 @@ export default function Account() {
   if (session) {
     router.push("/dashboard");
   }
-  //   useEffect(() => {
-  //     if (session) {
-  //       router.push("/dashboard");
-  //     }
-  //   }, []);
+
+  const [passwordText, setPasswordText] = useState("password");
+  const onClickEye = () => {
+    const stateChange = {
+      text: "password",
+      password: "text",
+    };
+    setPasswordText(stateChange[passwordText]);
+  };
 
   const signInWithEmail = (e) => {
     e.preventDefault();
@@ -50,20 +54,20 @@ export default function Account() {
   return (
     <div className="dark:bg-[#0F192B]">
       <ToastContainer />
-      <div className="container mx-auto min-h-screen sm:px-6 lg:px-8">
-        <div className="min-h-screen max-w-lg mx-auto flex flex-col items-center justify-center sm:px-6 lg:px-8">
+      <div className="container mx-auto min-h-screen sm:px-6 lg:px-8 min-w-full">
+        <div className="min-h-screen max-w-lg mx-auto flex flex-col items-center justify-center sm:px-6 lg:px-8 min-w-full ">
           <h1 className="text-2xl font-bold text-center text-indigo-600 dark:text-indigo-400 sm:text-3xl">
-            Login
+            Welcome Back
           </h1>
 
           <form
             action=""
-            className="p-20 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-gray-800"
+            className="p-20 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-gray-800 min-w-fit"
           >
-            <p className="text-lg font-medium">Sign in to your account</p>
+            <p className="text-xl font-bold">Sign in to your account</p>
 
             <div>
-              <label htmlFor="email" className="text-sm font-medium">
+              <label htmlFor="email" className="text-md font-medium">
                 Email
               </label>
 
@@ -71,7 +75,7 @@ export default function Account() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                  className="w-full p-4 pr-12 text-md border-gray-200 rounded-lg shadow-sm"
                   placeholder="Enter email"
                 />
 
@@ -82,20 +86,29 @@ export default function Account() {
             </div>
 
             <div>
-              <label htmlFor="password" className="text-sm font-medium">
+              <label htmlFor="password" className="text-md font-medium">
                 Password
               </label>
 
               <div className="relative mt-1">
                 <input
-                  type="password"
+                  type={passwordText}
                   id="password"
-                  className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                  className="w-full p-4 pr-12 text-md border-gray-200 rounded-lg shadow-sm"
                   placeholder="Enter password"
                 />
 
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                  <Icon icon={<AiOutlineEye />} />
+                <span
+                  className="absolute inset-y-0 inline-flex items-center right-4 hover:cursor-pointer"
+                  onClick={() => {
+                    onClickEye();
+                  }}
+                >
+                  {passwordText === "password" ? (
+                    <Icon icon={<AiFillEyeInvisible />} />
+                  ) : (
+                    <Icon icon={<AiOutlineEye />} />
+                  )}
                 </span>
               </div>
             </div>
@@ -126,7 +139,7 @@ export default function Account() {
               </div>
             </div>
 
-            <p className="text-sm text-center text-gray-500">
+            <p className="text-md text-center text-gray-500">
               No account?
               <a className="underline" href="">
                 Sign up
