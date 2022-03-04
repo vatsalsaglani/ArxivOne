@@ -49,24 +49,18 @@ export default function Home() {
               Save and Explore
               <span className="sm:block">new Research Papers.</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
+            <p className="mx-auto mt-4 max-w-xl text-gray-600 sm:text-xl sm:leading-relaxed">
               Organize and follow new research papers in your domain with the
               power of AI
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/account">
-                <a
-                  className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                  // href="/get-started"
-                >
+                <a className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
                   Get Started
                 </a>
               </Link>
 
-              <a
-                className="block w-full rounded border-blue-600 px-12 py-3 text-sm font-medium text-black hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                // href="/about"
-              >
+              <a className="block w-full rounded border-blue-600 px-12 py-3 text-sm font-medium text-black ring-0 ring-blue-600 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500 sm:w-auto">
                 Learn More
               </a>
             </div>
