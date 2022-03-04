@@ -31,40 +31,45 @@ export default function Home() {
     return <div></div>;
   }
   return (
-    <div className="block mb-10 ">
+    <div className="mb-10 block ">
       <div className="w-full">
         <NavigationComponent />
       </div>
       <div
         className={
-          "container mx-auto min-w-full min-h-screen p-4 flex flex-col items-center justify-center"
+          "container mx-auto flex min-h-screen min-w-full flex-col items-center justify-center p-4"
         }
       >
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
-            Save and Explore
-            <span className="sm:block">new Research Papers.</span>
-          </h1>
-          <p className="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl">
-            Organize and follow new research papers in your domain with the
-            power of AI
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link href="/account">
-              <a
-                className="block w-full px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring"
-                // href="/get-started"
-              >
-                Get Started
-              </a>
-            </Link>
+        <div className="relative h-full w-full max-w-lg">
+          <div className="absolute top-0 -left-5 h-96 w-96 animate-blob rounded-full bg-pink-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
+          <div className="animation-delay-2000 absolute top-0 -right-5 h-96 w-96 animate-blob rounded-full bg-yellow-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
+          <div className="animation-delay-4000 absolute -bottom-10 left-20 h-96 w-96 animate-blob rounded-full bg-pink-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
+          <div className="relative mx-auto max-w-3xl text-center">
+            <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+              Save and Explore
+              <span className="sm:block">new Research Papers.</span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
+              Organize and follow new research papers in your domain with the
+              power of AI
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link href="/account">
+                <a
+                  className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                  // href="/get-started"
+                >
+                  Get Started
+                </a>
+              </Link>
 
-            <a
-              className="block w-full px-12 py-3 text-sm font-medium text-black hover:text-white border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
-              // href="/about"
-            >
-              Learn More
-            </a>
+              <a
+                className="block w-full rounded border-blue-600 px-12 py-3 text-sm font-medium text-black hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                // href="/about"
+              >
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
       </div>
