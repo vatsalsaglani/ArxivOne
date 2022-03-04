@@ -7,22 +7,22 @@ export default function NavigationComponent() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex flex-column">
-      <nav className="fixed w-full bg-slate-100 border-b-gray-200 border-b-2 flex justify-center items-center ">
+    <div className="flex-column flex">
+      <nav className="fixed flex w-full items-center justify-center border-b-2 border-b-gray-200 bg-slate-100 ">
         <div
           className={
-            "container mx-auto  w-full top-0 py-6 px-5  flex flex-row justify-between items-center h-16 sm:px-6 lg:px-8"
+            "container top-0  mx-auto flex h-16 w-full  flex-row items-center justify-between py-6 px-5 sm:px-6 lg:px-8"
           }
         >
-          <div className=" text-slate-600 flex justify-between items-stretch">
-            <div className="font-mono font-extrabold text-justify text-4xl">
+          <div className=" flex items-stretch justify-between text-slate-600">
+            <div className="text-justify font-mono text-4xl font-extrabold">
               <Link href="/">
                 <a>ArxivOne</a>
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex w-2/12 justify-around items-center text-slate-600 space-x-4 z-1">
-            <div className="font-serif font-medium text-justify text-lg md:text-xl">
+          <div className="z-1 hidden w-2/12 items-center justify-around space-x-4 text-slate-600 md:flex">
+            <div className="text-justify font-serif text-lg font-medium md:text-xl">
               <Link href="/features">
                 <a>
                   <div>Features</div>
@@ -33,7 +33,7 @@ export default function NavigationComponent() {
           <div className={"-mr-2 flex flex-col md:hidden"}>
             <button
               type="button"
-              className=" bg-slate-100 inline-flex items-center justify-center p-2 rounded-md text-slate-700 font-extrabold text-2xl hover:text-white hover:bg-gray-800  ring focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className=" inline-flex items-center justify-center rounded-md bg-slate-100 p-2 text-2xl font-extrabold text-slate-700 ring hover:bg-gray-800  hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={() => {
@@ -52,18 +52,18 @@ export default function NavigationComponent() {
       <div>
         {menuOpen ? (
           <div
-            className={"md:hidden fixed mt-20 w-full mx-auto"}
+            className={"fixed mx-auto mt-20 w-full md:hidden"}
             id="mobile-menu"
           >
             <div
               className={
-                "flex flex-col mx-auto items-center justify-center px-2 pt-2 pb-3 space-y-1 sm:px-3"
+                "mx-auto flex flex-col items-center justify-center space-y-1 px-2 pt-2 pb-3 sm:px-3"
               }
             >
               <Link href="/features">
                 <a
                   className={
-                    "text-black  block px-3 py-2 rounded-md text-base font-medium"
+                    "block  rounded-md px-3 py-2 text-base font-medium text-black"
                   }
                 >
                   Features

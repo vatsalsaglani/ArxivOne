@@ -22,13 +22,13 @@ export default function SignInComponent({ providers }) {
     return <div></div>;
   } else {
     return (
-      <div className="w-full py-2.5 my-10 h-fit flex flex-col justify-center items-center">
+      <div className="my-10 flex h-fit w-full flex-col items-center justify-center py-2.5">
         {providers
           ? Object.values(providers).map((provider) => (
               <button
                 key={provider.id}
                 className={
-                  "rounded-full my-8 w-80 p-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-600"
+                  "my-8 w-80 rounded-full bg-gradient-to-r from-green-400 to-blue-500 p-4 hover:from-blue-500 hover:to-green-600"
                 }
                 onClick={() => {
                   signIn(provider.id);

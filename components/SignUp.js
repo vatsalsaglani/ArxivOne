@@ -61,38 +61,38 @@ export default function SignUpComponent() {
       >
         <div className={"w-full max-w-md px-2 py-16 sm:px-0"}>
           <form
-            className="flex flex-col items-center justify-center p-12 mt-12"
+            className="mt-12 flex flex-col items-center justify-center p-12"
             action=""
           >
-            <label className="font-semibold text-xs" htmlFor="email">
+            <label className="text-xs font-semibold" htmlFor="email">
               Email
             </label>
             <input
-              className="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+              className="mt-2 flex h-12 w-64 items-center rounded bg-gray-200 px-4 focus:outline-none focus:ring-2"
               type="email"
               onChange={(e) => onChangeEmail(e)}
             />
             <label
-              className="font-semibold text-xs mt-3"
+              className="mt-3 text-xs font-semibold"
               htmlFor="passwordField"
             >
               Password
             </label>
             <input
-              className="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+              className="mt-2 flex h-12 w-64 items-center rounded bg-gray-200 px-4 focus:outline-none focus:ring-2"
               type="password"
               onChange={(e) => {
                 onChangePassword(e);
               }}
             />
             <label
-              className="font-semibold text-xs mt-3"
+              className="mt-3 text-xs font-semibold"
               htmlFor="passwordField"
             >
               Confirm Password
             </label>
             <input
-              className="flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+              className="mt-2 flex h-12 w-64 items-center rounded bg-gray-200 px-4 focus:outline-none focus:ring-2"
               type="password"
               onChange={(e) => {
                 onChangeConfirmPassword(e);
@@ -102,11 +102,11 @@ export default function SignUpComponent() {
               onClick={(e) => {
                 onSignUp(e);
               }}
-              className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700"
+              className="mt-8 flex h-12 w-64 items-center justify-center rounded bg-blue-600 px-6 text-sm font-semibold text-blue-100 hover:bg-blue-700"
             >
               Sign up
             </button>
-            <div className="flex mt-6 justify-center text-xs">
+            <div className="mt-6 flex justify-center text-xs">
               <a className="text-blue-400 hover:text-blue-500" href="#">
                 Forgot Password
               </a>

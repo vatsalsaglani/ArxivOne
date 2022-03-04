@@ -54,15 +54,15 @@ export default function Account() {
   return (
     <div>
       <ToastContainer />
-      <div className="container mx-auto min-h-screen sm:px-6 lg:px-8 min-w-full">
-        <div className="min-h-screen max-w-lg mx-auto flex flex-col items-center justify-center sm:px-6 lg:px-8 min-w-full ">
-          <h1 className="text-2xl font-bold text-center text-indigo-600 sm:text-3xl">
+      <div className="container mx-auto min-h-screen min-w-full sm:px-6 lg:px-8">
+        <div className="mx-auto flex min-h-screen min-w-full max-w-lg flex-col items-center justify-center sm:px-6 lg:px-8 ">
+          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
             Welcome Back
           </h1>
 
           <form
             action=""
-            className="p-20 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-gray-800 min-w-fit"
+            className="mt-6 mb-0 min-w-fit space-y-4 rounded-lg bg-gray-800 p-20 shadow-2xl"
           >
             <p className="text-xl font-bold">Sign in to your account</p>
 
@@ -75,11 +75,11 @@ export default function Account() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full p-4 pr-12 text-md border-gray-200 rounded-lg shadow-sm"
+                  className="text-md w-full rounded-lg border-gray-200 p-4 pr-12 shadow-sm"
                   placeholder="Enter email"
                 />
 
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
+                <span className="absolute inset-y-0 right-4 inline-flex items-center">
                   <Icon icon={<MdAlternateEmail />} />
                 </span>
               </div>
@@ -94,12 +94,12 @@ export default function Account() {
                 <input
                   type={passwordText}
                   id="password"
-                  className="w-full p-4 pr-12 text-md border-gray-200 rounded-lg shadow-sm"
+                  className="text-md w-full rounded-lg border-gray-200 p-4 pr-12 shadow-sm"
                   placeholder="Enter password"
                 />
 
                 <span
-                  className="absolute inset-y-0 inline-flex items-center right-4 hover:cursor-pointer"
+                  className="absolute inset-y-0 right-4 inline-flex items-center hover:cursor-pointer"
                   onClick={() => {
                     onClickEye();
                   }}
@@ -116,7 +116,7 @@ export default function Account() {
             <div className={"flex flex-row items-stretch justify-center"}>
               <button
                 type="submit"
-                className="block w-full px-5 py-3 text-md font-medium text-white bg-indigo-600 rounded-lg"
+                className="text-md block w-full rounded-lg bg-indigo-600 px-5 py-3 font-medium text-white"
                 onClick={(e) => {
                   signInWithEmail(e);
                 }}
@@ -127,7 +127,7 @@ export default function Account() {
             <div
               as="button"
               className={
-                "w-full px-5 py-3 text-md font-medium text-white flex flex-row items-center justify-center bg-indigo-600 rounded-lg hover:cursor-pointer"
+                "text-md flex w-full flex-row items-center justify-center rounded-lg bg-indigo-600 px-5 py-3 font-medium text-white hover:cursor-pointer"
               }
               onClick={() => {
                 signIn("github");
