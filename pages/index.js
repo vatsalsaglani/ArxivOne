@@ -31,7 +31,7 @@ export default function Home() {
     return <div></div>;
   }
   return (
-    <div className="block mb-10 dark:bg-[#0F192B]">
+    <div className="block mb-10 ">
       <div className="w-full">
         <NavigationComponent />
       </div>
@@ -60,7 +60,7 @@ export default function Home() {
             </Link>
 
             <a
-              className="block w-full px-12 py-3 text-sm font-medium text-black hover:text-white dark:text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
+              className="block w-full px-12 py-3 text-sm font-medium text-black hover:text-white border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
               // href="/about"
             >
               Learn More

@@ -52,11 +52,11 @@ export default function Account() {
   }
 
   return (
-    <div className="dark:bg-[#0F192B]">
+    <div>
       <ToastContainer />
       <div className="container mx-auto min-h-screen sm:px-6 lg:px-8 min-w-full">
         <div className="min-h-screen max-w-lg mx-auto flex flex-col items-center justify-center sm:px-6 lg:px-8 min-w-full ">
-          <h1 className="text-2xl font-bold text-center text-indigo-600 dark:text-indigo-400 sm:text-3xl">
+          <h1 className="text-2xl font-bold text-center text-indigo-600 sm:text-3xl">
             Welcome Back
           </h1>
 
