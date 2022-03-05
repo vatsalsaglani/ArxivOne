@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
-
+import Link from "next/link";
 // components
 import { Icon } from "./Navigation";
 
@@ -17,6 +17,34 @@ export default function SignInComponent() {
     };
     setPasswordText(stateChange[passwordText]);
   };
+
+  const signInWithEmail = (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    console.log("EMAIL: ", email, "Password: ", password);
+    if (email.length > 0 && password.length > 0) {
+      // do check
+      signIn("credentials", { email: email, password: password });
+    } else {
+      console.log("IN TOAST");
+      toast.info("Email or Password is empty", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  const signInWithGithub = (e) => {
+    e.preventDefault();
+    signIn("github");
+  };
+
   return (
     <div className="mx-auto flex min-h-screen min-w-full flex-col items-center justify-center">
       <div className="relative h-full w-full max-w-lg">
@@ -86,6 +114,38 @@ export default function SignInComponent() {
                   />
                 </span>
               </div>
+            </div>
+
+            <div>
+              <button
+                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-500 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
+                onClick={(e) => {
+                  signInWithEmail(e);
+                }}
+              >
+                <span className="mr-1">Sign In</span>
+              </button>
+              <button
+                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-500 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
+                onClick={(e) => {
+                  signInWithGithub(e);
+                }}
+              >
+                <span className="mr-1">Sign In with GitHub</span>
+                <span className="mr-1">
+                  <Icon icon={<AiFillGithub size={18} />} />
+                </span>
+              </button>
+            </div>
+            <div className="flex w-full items-center justify-center space-x-1 text-sm text-slate-500">
+              <span>Don't have an account?</span>
+              <Link href="/signup">
+                <a>
+                  <span className="transition ease-in-out hover:underline hover:decoration-sky-400 hover:duration-100">
+                    Create one
+                  </span>
+                </a>
+              </Link>
             </div>
           </form>
         </div>
