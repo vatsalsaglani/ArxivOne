@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Icon } from "../components/Navigation";
+
+import Head from "next/head";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-
-import { MdAlternateEmail } from "react-icons/md";
-import { AiOutlineEye, AiFillGithub, AiFillEyeInvisible } from "react-icons/ai";
 
 // components
 import SignInComponent from "../components/SignIn";
@@ -25,6 +23,9 @@ export default function Account() {
 
   return (
     <div>
+      <Head>
+        <title>Sign in | ArxivOne</title>
+      </Head>
       <ToastContainer />
       <div className="container mx-auto sm:px-6 lg:px-8">
         <SignInComponent />
