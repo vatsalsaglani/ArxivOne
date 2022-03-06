@@ -30,7 +30,7 @@ export default function Home() {
         <title>ArxivOne | Home</title>
       </Head>
       <div className="w-full">
-        <NavigationComponent />
+        <NavigationComponent options={["features", "signin"]} />
       </div>
       <div
         className={

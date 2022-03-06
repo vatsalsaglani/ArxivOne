@@ -3,9 +3,8 @@ import Link from "next/link";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-export default function NavigationComponent() {
+export default function NavigationComponent({ options = ["features"] }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="flex-column flex">
       <nav className="fixed flex w-full items-center justify-center border-b-2 border-b-gray-100 bg-slate-50 ">
@@ -21,16 +20,27 @@ export default function NavigationComponent() {
               </Link>
             </div>
           </div>
-          <div className="z-1 hidden w-2/12 items-center justify-around space-x-4 text-sky-600 md:flex">
-            <div className="text-justify font-Work text-lg font-medium md:text-xl">
-              <Link href="/features">
-                <a>
-                  <div>Features</div>
-                </a>
-              </Link>
-            </div>
+          <div className="z-1 hidden items-center justify-around space-x-8 text-sky-600 lg:flex">
+            {options.includes("features") ? (
+              <div className="before:position-absolute before:display-block before:width-full before:ease text-justify font-Work text-lg font-medium transition hover:text-sky-300 lg:text-xl">
+                <Link href="/features">
+                  <a>
+                    <div>Features</div>
+                  </a>
+                </Link>
+              </div>
+            ) : null}
+            {options.includes("signin") ? (
+              <div className="text-justify font-Work font-normal lg:text-xl">
+                <Link href="/signin">
+                  <a className=" hover:shadow:lg rounded-lg p-2 text-base text-sky-600 ring-1 ring-sky-500 hover:cursor-pointer hover:bg-sky-600 hover:text-white ">
+                    Sign In
+                  </a>
+                </Link>
+              </div>
+            ) : null}
           </div>
-          <div className={"-mr-2 flex flex-col md:hidden"}>
+          <div className={"-mr-2 flex flex-col lg:hidden"}>
             <button
               type="button"
               className="inline-flex items-center justify-center rounded-md p-2 text-2xl font-extrabold text-sky-600 hover:shadow-lg hover:transition hover:ease-in-out"
@@ -52,7 +62,7 @@ export default function NavigationComponent() {
       <div>
         {menuOpen ? (
           <div
-            className={"fixed mx-auto mt-20 w-full md:hidden"}
+            className={"fixed mx-auto mt-20 w-full lg:hidden"}
             id="mobile-menu"
           >
             <div
@@ -60,15 +70,26 @@ export default function NavigationComponent() {
                 "mx-auto flex flex-col items-center justify-center space-y-1 px-2 pt-2 pb-3 sm:px-3"
               }
             >
-              <Link href="/features">
-                <a
-                  className={
-                    "block  rounded-md px-3 py-2 text-base font-medium text-sky-600"
-                  }
-                >
-                  Features
-                </a>
-              </Link>
+              {options.includes("features") ? (
+                <Link href="/features">
+                  <a
+                    className={
+                      "block rounded-md  px-3 py-2 text-base font-medium text-sky-600  transition hover:text-sky-300"
+                    }
+                  >
+                    Features
+                  </a>
+                </Link>
+              ) : null}
+              {options.includes("signin") ? (
+                <div className="text-justify font-Work font-normal lg:text-xl">
+                  <Link href="/signin">
+                    <a className="hover:shadow:lg rounded-lg p-2 text-base text-sky-600 ring-1 ring-sky-500 hover:cursor-pointer hover:bg-sky-600 hover:text-white ">
+                      Sign In
+                    </a>
+                  </Link>
+                </div>
+              ) : null}
             </div>
           </div>
         ) : null}
