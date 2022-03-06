@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 // components
 import SignInComponent from "../components/SignIn";
+import NavigationComponent from "../components/Navigation";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,7 +28,11 @@ export default function Account() {
         <title>Sign in | ArxivOne</title>
       </Head>
       <ToastContainer />
-      <div className="container mx-auto sm:px-6 lg:px-8">
+      <div className="w-full">
+        <NavigationComponent />
+      </div>
+
+      <div className="text-Work container mx-auto sm:px-6 lg:px-8">
         <SignInComponent />
       </div>
     </div>
