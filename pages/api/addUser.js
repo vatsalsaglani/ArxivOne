@@ -9,26 +9,38 @@ export default async function handler(req, res) {
   let params = JSON.parse(req.body);
   console.log("PARAMS: ", params);
   let prisma = new PrismaClient();
-  const user = await prisma.user.create({
-    data: {
+  const account = await prisma.user.findUnique({
+    where: {
       email: params.email,
-      Auth: {
-        create: {
-          password: params.password,
-        },
-      },
-      accounts: {
-        create: {
-          type: "credentials",
-          provider: "credentials",
-          providerAccountId: uuidv4(),
-        },
-      },
     },
   });
-  if (user) {
-    res.status(200).json({ ok: true });
+  console.log("ACCOUNT USER: ", account);
+  if (account) {
+    res
+      .status(200)
+      .json({ ok: false, message: "Account with email already exists" });
   } else {
-    res.status(200).json({ ok: false });
+    const user = await prisma.user.create({
+      data: {
+        email: params.email,
+        Auth: {
+          create: {
+            password: params.password,
+          },
+        },
+        accounts: {
+          create: {
+            type: "credentials",
+            provider: "credentials",
+            providerAccountId: uuidv4(),
+          },
+        },
+      },
+    });
+    if (user) {
+      res.status(200).json({ ok: true, message: "Success!" });
+    } else {
+      res.status(200).json({ ok: false, message: "Error creating account" });
+    }
   }
 }
