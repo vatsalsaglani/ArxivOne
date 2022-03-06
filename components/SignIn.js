@@ -4,6 +4,9 @@ import Link from "next/link";
 // components
 import { Icon } from "./Navigation";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // icons
 import { MdAlternateEmail } from "react-icons/md";
 import { AiOutlineEye, AiFillGithub, AiFillEyeInvisible } from "react-icons/ai";
@@ -47,6 +50,7 @@ export default function SignInComponent() {
 
   return (
     <div className="mx-auto flex min-h-screen min-w-full flex-col items-center justify-center font-Work ">
+      <ToastContainer />
       <div className="relative h-full w-full max-w-lg">
         <div className="absolute top-0 -left-5 h-96 w-96 animate-blob rounded-full bg-pink-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
         <div className="animation-delay-2000 absolute top-0 -right-5 h-96 w-96 animate-blob rounded-full bg-yellow-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
