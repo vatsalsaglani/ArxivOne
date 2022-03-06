@@ -4,7 +4,6 @@ import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
-let userSession = null;
 const prisma = new PrismaClient();
 
 export default NextAuth({
