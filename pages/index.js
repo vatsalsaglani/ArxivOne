@@ -13,10 +13,6 @@ import { useRouter } from "next/router";
 import GlobalContext from "../contexts/global";
 import NavigationComponent from "../components/Navigation";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function Home() {
   const { data: session } = useSession();
 
