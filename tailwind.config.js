@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Work: ["Work Sans", "sans-serif"],
+      },
       animation: {
         blob: "blob 7s infinite",
       },
