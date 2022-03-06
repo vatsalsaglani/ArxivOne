@@ -8,21 +8,21 @@ export default function NavigationComponent() {
 
   return (
     <div className="flex-column flex">
-      <nav className="fixed flex w-full items-center justify-center border-b-2 border-b-gray-200 bg-slate-100 ">
+      <nav className="fixed flex w-full items-center justify-center border-b-2 border-b-gray-100 bg-slate-50 ">
         <div
           className={
             "container top-0  mx-auto flex h-16 w-full  flex-row items-center justify-between py-6 px-5 sm:px-6 lg:px-8"
           }
         >
-          <div className=" flex items-stretch justify-between text-slate-600">
-            <div className="text-justify font-mono text-4xl font-extrabold">
+          <div className=" flex items-stretch justify-between text-sky-600">
+            <div className="text-justify font-Work text-4xl font-extrabold">
               <Link href="/">
                 <a>ArxivOne</a>
               </Link>
             </div>
           </div>
-          <div className="z-1 hidden w-2/12 items-center justify-around space-x-4 text-slate-600 md:flex">
-            <div className="text-justify font-serif text-lg font-medium md:text-xl">
+          <div className="z-1 hidden w-2/12 items-center justify-around space-x-4 text-sky-600 md:flex">
+            <div className="text-justify font-Work text-lg font-medium md:text-xl">
               <Link href="/features">
                 <a>
                   <div>Features</div>
@@ -33,7 +33,7 @@ export default function NavigationComponent() {
           <div className={"-mr-2 flex flex-col md:hidden"}>
             <button
               type="button"
-              className=" inline-flex items-center justify-center rounded-md bg-slate-100 p-2 text-2xl font-extrabold text-slate-700 ring hover:bg-gray-800  hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="inline-flex items-center justify-center rounded-md p-2 text-2xl font-extrabold text-sky-600 hover:shadow-lg hover:transition hover:ease-in-out"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={() => {
@@ -63,7 +63,7 @@ export default function NavigationComponent() {
               <Link href="/features">
                 <a
                   className={
-                    "block  rounded-md px-3 py-2 text-base font-medium text-black"
+                    "block  rounded-md px-3 py-2 text-base font-medium text-sky-600"
                   }
                 >
                   Features
