@@ -46,7 +46,7 @@ export default function SignInComponent() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen min-w-full flex-col items-center justify-center">
+    <div className="mx-auto flex min-h-screen min-w-full flex-col items-center justify-center font-Work ">
       <div className="relative h-full w-full max-w-lg">
         <div className="absolute top-0 -left-5 h-96 w-96 animate-blob rounded-full bg-pink-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
         <div className="animation-delay-2000 absolute top-0 -right-5 h-96 w-96 animate-blob rounded-full bg-yellow-300 opacity-70 mix-blend-multiply blur-xl filter"></div>
@@ -78,7 +78,7 @@ export default function SignInComponent() {
                   className="text-md w-full rounded-lg border-gray-200 p-4 pr-12 shadow-sm"
                   placeholder="Enter Email"
                 />
-                <span className="absolute inset-y-0 right-4 inline-flex items-center">
+                <span className="absolute inset-y-0 right-4 inline-flex items-center text-sky-500">
                   <Icon icon={<MdAlternateEmail size={16} />} />
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function SignInComponent() {
                   placeholder="Enter Password"
                 />
                 <span
-                  className="absolute inset-y-0 right-4 inline-flex items-center"
+                  className="absolute inset-y-0 right-4 inline-flex items-center text-sky-500 "
                   onClick={() => {
                     onClickEye();
                   }}
@@ -118,7 +118,7 @@ export default function SignInComponent() {
 
             <div>
               <button
-                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-500 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
+                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-600 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
                 onClick={(e) => {
                   signInWithEmail(e);
                 }}
@@ -126,7 +126,7 @@ export default function SignInComponent() {
                 <span className="mr-1">Sign In</span>
               </button>
               <button
-                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-500 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
+                className="text-md hover:ring-bl relative mt-2 flex w-full items-center justify-center rounded-lg bg-sky-600 p-2 font-medium text-slate-100 shadow-xl hover:bg-transparent hover:text-slate-800 hover:ring-2 hover:ring-sky-500"
                 onClick={(e) => {
                   signInWithGithub(e);
                 }}
