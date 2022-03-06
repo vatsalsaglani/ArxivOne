@@ -4,16 +4,12 @@ import { GlobalContextProvider } from "../contexts/global";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider>
+    <SessionProvider session={pageProps.session} refetchInterval={0}>
       <GlobalContextProvider>
         <Component {...pageProps} />
       </GlobalContextProvider>
     </SessionProvider>
   );
 }
-
-// function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />;
-// }
 
 export default MyApp;
