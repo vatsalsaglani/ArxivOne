@@ -26,6 +26,9 @@ export default function Home() {
   }
   return (
     <div className="mb-10 block ">
+      <Head>
+        <title>ArxivOne | Home</title>
+      </Head>
       <div className="w-full">
         <NavigationComponent />
       </div>
