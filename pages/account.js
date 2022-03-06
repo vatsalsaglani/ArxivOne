@@ -7,15 +7,15 @@ import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Account() {
-  console.log("ACCOUNT ACCOUNT");
+  // console.log("ACCOUNT ACCOUNT");
   const { data: session, status: authStatus } = useSession();
   const router = useRouter();
-  console.log("STATUS: ", authStatus);
-  console.log("SESSION: ", session);
+  // console.log("STATUS: ", authStatus);
+  // console.log("SESSION: ", session);
 
   useEffect(() => {
     if (authStatus === "unauthenticated") {
-      console.log("NOT SESSION, ", session);
+      // console.log("NOT SESSION, ", session);
       router.push("/signin");
     }
   }, [authStatus]);

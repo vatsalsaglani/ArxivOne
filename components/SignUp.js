@@ -41,21 +41,21 @@ export default function SignUpComponent() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("cnfpassword").value;
-    console.log("TAPPED ON SIGN UP");
-    console.log(email, password, confirmPassword);
+    // console.log("TAPPED ON SIGN UP");
+    // console.log(email, password, confirmPassword);
     let result = await addUser(email, password, confirmPassword);
-    console.log("RESULT: ", result);
+    // console.log("RESULT: ", result);
     if (result.ok) {
       signIn("credentials", {
         email: email,
         password: password,
         redirect: false,
       });
-      console.log("signed in");
+      // console.log("signed in");
       router.push("/account");
     } else {
       console.dir(result, { depth: null });
-      console.log("Error Signing Up");
+      // console.log("Error Signing Up");
       toast(result.message, {
         position: "top-right",
         autoClose: 5000,

@@ -15,7 +15,7 @@ import NavigationComponent from "../components/Navigation";
 
 export default function Home() {
   const { data: session } = useSession();
-  console.log("SESSION: ", session);
+  // console.log("SESSION: ", session);
   const router = useRouter();
 
   if (session) {

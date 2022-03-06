@@ -7,14 +7,14 @@ import { v4 as uuidv4 } from "uuid";
 
 export default async function handler(req, res) {
   let params = JSON.parse(req.body);
-  console.log("PARAMS: ", params);
+  // console.log("PARAMS: ", params);
   let prisma = new PrismaClient();
   const account = await prisma.user.findUnique({
     where: {
       email: params.email,
     },
   });
-  console.log("ACCOUNT USER: ", account);
+  // console.log("ACCOUNT USER: ", account);
   if (account) {
     res
       .status(200)

@@ -25,12 +25,12 @@ export default function SignInComponent() {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log("EMAIL: ", email, "Password: ", password);
+    // console.log("EMAIL: ", email, "Password: ", password);
     if (email.length > 0 && password.length > 0) {
       // do check
       signIn("credentials", { email: email, password: password });
     } else {
-      console.log("IN TOAST");
+      // console.log("IN TOAST");
       toast.info("Email or Password is empty", {
         position: "top-right",
         autoClose: 5000,

@@ -5,6 +5,11 @@ import { useRouter } from "next/router";
 export default function Dashboard() {
   const { data: session, status: authStatus } = useSession();
   const router = useRouter();
+
+  // console.log("USER SESSION: ", session);
+  // TODO: gets user email
+  // console.log(session.user.email);
+
   useEffect(() => {
     if (authStatus === "unauthenticated") {
       router.push("/signin");
@@ -18,6 +23,7 @@ export default function Dashboard() {
   return (
     <div className="container mx-auto bg-slate-200 px-10  py-8 ">
       <h2>Dashboard</h2>
+      {/* <h3>{session.user.email}</h3> */}
       {/* <Link href="/account"></Link> */}
     </div>
   );
