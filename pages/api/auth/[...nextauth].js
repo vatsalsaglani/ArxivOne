@@ -13,7 +13,6 @@ export default NextAuth({
   session: {
     jwt: true,
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60,
   },
   // adapter: PrismaAdapter(prisma),
   providers: [
@@ -33,7 +32,7 @@ export default NextAuth({
       },
 
       authorize: async (credentials) => {
-        console.log("AUTHORIZING");
+        // console.log("AUTHORIZING");
         const result = await prisma.user.findUnique({
           where: {
             email: credentials.email,
@@ -46,11 +45,11 @@ export default NextAuth({
             },
           },
         });
-        console.log("RESULT: ", result);
+        // console.log("RESULT: ", result);
         if (result) {
           console.dir(result, { depth: 0 });
           if (result.Auth.password === credentials.password) {
-            console.log("AUTHORIZED");
+            // console.log("AUTHORIZED");
             // create session
 
             return {
@@ -65,17 +64,25 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async jwt(token, user, account) {
-      console.log("JWT CALLED");
+    async jwt({ token, user, account }) {
+      // console.log("JWT CALLED");
+      // console.log("JWT TOKEN: ", token);
+      // console.log("JWT USER: ", user);
+      // console.log("JWT ACCOUNT: ", account);
       if (user) {
         token.id = user.id;
+        token.user = user;
       }
 
-      console.log("FINAL", token);
+      // if (token?.token?.token?.token)
+
+      // console.log("FINAL", token);
       return token;
     },
-    async session(session, user, token) {
-      console.log("SESSION CALLED");
+    async session({ session, user, token }) {
+      // console.log("SESSION CALLED");
+      // console.log("SESSION USER: ", session);
+      // console.log("SESSION Token: ", token);
       if (token) {
         session.id = token.id;
       }
@@ -85,12 +92,12 @@ export default NextAuth({
 
       return session;
     },
-    async signIn(user, account, profile) {
-      console.log("SIGN IN CALLED");
+    async signIn({ user, account, profile, email, credentials }) {
+      // console.log("SIGN IN CALLED");
       return true;
     },
     async redirect({ url, baseUrl }) {
-      console.log("REDIRECT CALLED");
+      // console.log("REDIRECT CALLED");
       return baseUrl;
     },
   },
