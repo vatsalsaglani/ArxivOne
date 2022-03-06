@@ -11,7 +11,7 @@ import NavigationComponent from "../components/Navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Account() {
+export default function SignIn() {
   const { data: session } = useSession();
   const router = useRouter();
   if (session) {
