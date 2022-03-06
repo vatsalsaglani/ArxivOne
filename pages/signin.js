@@ -12,13 +12,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
-  const { data: session } = useSession();
+  const { data: session, status: authStatus } = useSession();
   const router = useRouter();
-  if (session) {
-    router.push("/dashboard");
-  }
+
+  useEffect(() => {
+    if (authStatus === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [authStatus]);
 
   if (session) {
+    return <div></div>;
+  } else if (authStatus === "loading") {
     return <div></div>;
   }
 
