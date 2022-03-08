@@ -46,13 +46,17 @@ export default function SignUpComponent() {
     let result = await addUser(email, password, confirmPassword);
     // console.log("RESULT: ", result);
     if (result.ok) {
-      signIn("credentials", {
+      const res = await signIn("credentials", {
         email: email,
         password: password,
         redirect: false,
       });
+      console.log("SIGN RESULT: ", result);
       // console.log("signed in");
-      router.push("/account");
+      if (res.ok) {
+        console.log("PUSHING TO ACCOUNT");
+        router.push("/account");
+      }
     } else {
       console.dir(result, { depth: null });
       // console.log("Error Signing Up");
