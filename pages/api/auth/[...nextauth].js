@@ -4,6 +4,7 @@ import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
+import { compareHash } from "../../../lib/hash_password_utils";
 const prisma = new PrismaClient();
 
 export default NextAuth({
@@ -48,7 +49,8 @@ export default NextAuth({
         // console.log("RESULT: ", result);
         if (result) {
           console.dir(result, { depth: 0 });
-          if (result.Auth.password === credentials.password) {
+
+          if (compareHash(credentials.password, result.Auth.password)) {
             // console.log("AUTHORIZED");
             // create session
 
