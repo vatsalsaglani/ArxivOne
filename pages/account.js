@@ -20,6 +20,11 @@ export default function Account() {
     }
   }, [authStatus]);
 
+  const sendReq = async () => {
+    let r = await fetch("/api/addPost");
+    console.log(r);
+  };
+
   if (session && authStatus === "authenticated") {
     return (
       <div>
@@ -27,6 +32,15 @@ export default function Account() {
           <title>Account | ArixvOne</title>
         </Head>
         <div className="mx-auto px-4 py-6">Hello</div>
+        <div>
+          <button
+            onClick={() => {
+              sendReq();
+            }}
+          >
+            SEND
+          </button>
+        </div>
       </div>
     );
   } else if (authStatus === "loading") {
