@@ -10,12 +10,13 @@ export default function Account() {
   // console.log("ACCOUNT ACCOUNT");
   const { data: session, status: authStatus } = useSession();
   const router = useRouter();
-  // console.log("STATUS: ", authStatus);
-  // console.log("SESSION: ", session);
+  console.log("STATUS: ", authStatus);
+  console.log("SESSION: ", session);
 
   useEffect(() => {
-    if (authStatus === "unauthenticated") {
-      // console.log("NOT SESSION, ", session);
+    if (authStatus && !["authenticated", "loading"].includes(authStatus)) {
+      console.log("NOT SESSION, ", session);
+      console.log("PUSHING TO SIGNING");
       router.push("/signin");
     }
   }, [authStatus]);
