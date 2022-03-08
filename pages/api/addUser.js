@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
-
+import { hashPassword } from "../../lib/hash_password_utils";
 // export default function handler(req, res) {
 //     res.status(200).json({ name: 'John Doe' })
 //   }
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
         email: params.email,
         Auth: {
           create: {
-            password: params.password,
+            password: hashPassword(params.password),
           },
         },
         accounts: {
