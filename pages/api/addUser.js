@@ -28,6 +28,11 @@ export default async function handler(req, res) {
             password: hashPassword(params.password),
           },
         },
+        Hash: {
+          create: {
+            hash: hashPassword(params.email),
+          },
+        },
         accounts: {
           create: {
             type: "credentials",
