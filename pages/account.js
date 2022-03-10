@@ -6,6 +6,10 @@ import { useSession, signIn } from "next-auth/react";
 
 import { useRouter } from "next/router";
 
+// components
+
+import SideBar from "../components/Sidebar";
+
 export default function Account() {
   // console.log("ACCOUNT ACCOUNT");
   const { data: session, status: authStatus } = useSession();
@@ -21,27 +25,16 @@ export default function Account() {
     }
   }, [authStatus]);
 
-  const sendReq = async () => {
-    let r = await fetch("/api/addPost");
-    console.log(r);
-  };
-
   if (session && authStatus === "authenticated") {
     return (
-      <div>
+      <div className="">
         <Head>
-          <title>Account | ArixvOne</title>
+          <title>Account | ArxivOne</title>
         </Head>
-        <div className="mx-auto px-4 py-6">Hello</div>
-        <div>
-          <button
-            onClick={() => {
-              sendReq();
-            }}
-          >
-            SEND
-          </button>
-        </div>
+        {/* <div className=""> */}
+        <SideBar selected={"ACCOUNT"} />
+        {/* </div> */}
+        <div className="absolute mx-auto h-screen w-full bg-gray-900 px-5 py-6 text-black sm:left-16 sm:right-0 sm:max-w-[80vw] lg:right-0 lg:left-48 lg:py-10 lg:px-10"></div>
       </div>
     );
   } else if (authStatus === "loading") {

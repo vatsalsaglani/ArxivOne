@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+
+import SideBar from "../components/Sidebar";
+
 export default function Dashboard() {
   const { data: session, status: authStatus } = useSession();
   const router = useRouter();
@@ -21,10 +24,13 @@ export default function Dashboard() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="container mx-auto bg-slate-200 px-10  py-8 ">
-      <h2>Dashboard</h2>
-      {/* <h3>{session.user.email}</h3> */}
-      {/* <Link href="/account"></Link> */}
+    <div className="">
+      {/* <div className=""> */}
+      <SideBar />
+      {/* </div> */}
+      <div className="absolute mx-auto h-screen w-full bg-gray-900 px-5 py-6 font-Work text-black sm:left-16 sm:right-0 sm:max-w-[80vw] lg:right-0 lg:left-48 lg:py-10  lg:px-10">
+        DASHBOARD
+      </div>
     </div>
   );
 }
