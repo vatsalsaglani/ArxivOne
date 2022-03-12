@@ -16,9 +16,9 @@ import { RiLogoutBoxFill, RiMenu5Line } from "react-icons/ri";
 export default function SideBar({ selected = "HOME" }) {
   return (
     <>
-      <div className="lg:w-50 duration-1500 fixed left-0 top-0 hidden h-screen min-h-screen bg-gray-200 transition-all sm:flex sm:w-16 sm:flex-col sm:items-center sm:justify-center lg:w-48">
-        <div className=" h-full w-full flex-col justify-between  py-10 px-2">
-          <div className=" h-5/6 flex-grow flex-col items-center justify-center space-y-8 px-2">
+      <div className="duration-1500 fixed left-0 top-0 hidden h-screen min-h-screen bg-gray-200 transition-all sm:flex sm:w-16 sm:flex-col sm:items-center sm:justify-center sm:border-r-2 sm:border-r-slate-300 lg:w-48">
+        <div className=" h-full w-full flex-col items-center justify-center py-10 px-2">
+          <div className="h-5/6 flex-grow flex-col items-center justify-center space-y-8 px-2">
             <SideButton
               isSelected={selected === "HOME" ? true : false}
               href="/dashboard"
